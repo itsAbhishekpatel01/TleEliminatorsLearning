@@ -1,0 +1,92 @@
+Where is bit manipulation used?
+ 2. Problem do not specify to use bit manipulation but can be used
+1. Problems involving bit manipulation directly
+
+How to approach bit manipulation problems?
+1. Think in terms of bits
+2. Rightmost bit = LSB
+3. Leftmost bit = MSB
+4. LSB has power of 2^0
+5. MSB has power of 2^n-1
+6. Setbit = 1, Unsetbit = 0
+7. For addition, multiplication, we do use decimal
+8. For bitwise operators, we need to use binary.
+ 
+// OPERATORS
+
+1.  OR OPERATORS
+// Even if there is single setbit result will be 1
+// If all the bit are unset then only result is 0
+
+2. AND OPERATORS
+// Even if there is single unsetbit result will be 0
+// If all the bit are set then only result is 1
+ 
+3. XOR OPERATORS
+// When number of setbit is odd then result is 1
+// When number of setbit is even then result is 0
+// The result will be (sum of bit) % 2
+
+SOME PROPERTIES OF bitwise OPERATORS
+
+1.  OR, AND and XOR are ASSOCIATIVE AND COMMUTATATIVE
+2.  A^0 = 0
+3.  A^A = 0
+4. A^B = C then A^C = B and C^A = B or C^B = A
+5. XOR operator is cyclic, example in point 4
+6. A&B <= min(A,B)
+7. Point 6 is true because the and operator will make the value 0 then there will be the first difference,
+    hence it will decrease the number or luckily equal to B
+8. A|B >= max(A,B)
+9. Point 6 and Point 8 are extendable for n numbers.
+10. We can say that, the more number of AND we do, the result will decrease only or same.
+11. Similarly, more number of OR will increase or same the result.
+12. (A|B) + (A&B) = A+B
+13. (A&1) is 1 if A is Odd, else 0
+14. A & (A-1) is 0 if A is a power of 2 (except when A=0)
+
+4. Bitwise Left Shift operator 
+  A<<B means A is multiplied by 2 power B ie A*(2^B)
+  5<<2 means 5 * (2^2) = 5*4 = 20
+  101 << 2 = 101(00) = 20
+
+5. Bitwise Right Shift operator
+  A>>B means A is floor divided by 2 power Bitwise
+  A>>B = A / (2^B)
+  20>>2 = 20 / (2^2) = 20/4 = 5
+
+
+MANIPULATING BITS
+1. Set the k-th bit (OR)✅
+2. Check if k-th bit is set or not (AND)
+3. Toggle the Kth bit (XOR)
+4. Unset the Kth bit (XOR)
+
+
+1. Set the Kth bit
+example = 12  = 1100
+Set the 2nd bit
+To set the bit, we have to use OR
+Now we have to find a number in which only desired bit is set.
+To get it, we can do 1<<K 
+Now if we do OR of number to 1<<k we will get Kth bit set
+So, n|(1<<K)✅
+
+2. Check if the k-th bit is set or not
+If we do AND with a number in which only desired bit is set.
+If bit is set then AND will give 1 else 0
+So, n&(1<<k)==1 then set else unset
+
+3. Toggle the Kth bit
+We know that XOR operation toggle the bit
+If we do XOR with the number in which only desired bit is set
+Then that bit will be toggled
+So, n^(1<<k)
+
+4. Unset the k-th bit
+One way is to check if the bit is set then toggle it
+How to check bit is set, if(n&(1<<k)) then n^(1<<k)
+
+What is Binary Expo
+
+
